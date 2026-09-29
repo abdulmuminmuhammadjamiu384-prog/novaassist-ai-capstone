@@ -1,0 +1,217 @@
+{
+  "accuracy": 100.0,
+  "total": 20,
+  "passed": 20,
+  "tests": [
+    {
+      "id": 1,
+      "category": "Fees",
+      "query": "What is the domestic transaction fee?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "NovaPay Core Platform & Fees"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Fees",
+      "query": "What is the cap on domestic fees?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "NovaPay Core Platform & Fees"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Fees",
+      "query": "What are international transaction charges?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "NovaPay Core Platform & Fees"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Settlement",
+      "query": "What is the settlement schedule for merchants?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "NovaPay Core Platform & Fees"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "KYC",
+      "query": "What documents are needed for registered merchant onboarding?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Merchant Onboarding & KYC"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "KYC",
+      "query": "Is a CAC certificate required for business registration?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Merchant Onboarding & KYC"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "KYC",
+      "query": "What is the turnaround time for Tier 1 verification?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Merchant Onboarding & KYC"
+      ]
+    },
+    {
+      "id": 8,
+      "category": "Disputes",
+      "query": "How long do merchants have to respond to chargebacks?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Dispute Resolution & Chargebacks"
+      ]
+    },
+    {
+      "id": 9,
+      "category": "Disputes",
+      "query": "What happens if a dispute evidence is not provided in 72 hours?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Dispute Resolution & Chargebacks"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "Integration",
+      "query": "What events trigger webhooks in NovaPay?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "API Webhooks & Integration"
+      ]
+    },
+    {
+      "id": 11,
+      "category": "Integration",
+      "query": "What HTTP status must webhooks return?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "API Webhooks & Integration"
+      ]
+    },
+    {
+      "id": 12,
+      "category": "Security",
+      "query": "How are webhook signatures verified?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "API Webhooks & Integration"
+      ]
+    },
+    {
+      "id": 13,
+      "category": "Security",
+      "query": "What encryption standard does NovaPay enforce for stored cards?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Security & Compliance Standards"
+      ]
+    },
+    {
+      "id": 14,
+      "category": "Security",
+      "query": "What PCI-DSS level compliance does NovaPay maintain?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Security & Compliance Standards"
+      ]
+    },
+    {
+      "id": 15,
+      "category": "Compliance",
+      "query": "Does NovaPay hold ISO 27001 certification?",
+      "expected_grounded": true,
+      "actual_grounded": true,
+      "status": "PASS",
+      "sources": [
+        "Security & Compliance Standards"
+      ]
+    },
+    {
+      "id": 16,
+      "category": "Hallucination Check",
+      "query": "What is the stock price of NovaPay today?",
+      "expected_grounded": false,
+      "actual_grounded": false,
+      "status": "PASS",
+      "sources": []
+    },
+    {
+      "id": 17,
+      "category": "Hallucination Check",
+      "query": "Can I buy cryptocurrency on NovaPay?",
+      "expected_grounded": false,
+      "actual_grounded": false,
+      "status": "PASS",
+      "sources": []
+    },
+    {
+      "id": 18,
+      "category": "Hallucination Check",
+      "query": "Who is the current President of France?",
+      "expected_grounded": false,
+      "actual_grounded": false,
+      "status": "PASS",
+      "sources": []
+    },
+    {
+      "id": 19,
+      "category": "Hallucination Check",
+      "query": "Does NovaPay issue physical titanium credit cards?",
+      "expected_grounded": false,
+      "actual_grounded": false,
+      "status": "PASS",
+      "sources": []
+    },
+    {
+      "id": 20,
+      "category": "Hallucination Check",
+      "query": "What is NovaPay's office address in London?",
+      "expected_grounded": false,
+      "actual_grounded": false,
+      "status": "PASS",
+      "sources": []
+    }
+  ]
+}
