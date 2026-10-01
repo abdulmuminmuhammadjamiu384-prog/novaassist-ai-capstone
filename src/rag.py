@@ -2,12 +2,22 @@ import json
 import re
 import math
 import os
+import difflib
 from typing import List, Dict, Tuple, Optional
 
-# Only map unambiguous financial operation terms
 SYNONYM_MAP = {
+    "wht": "what",
+    "wat": "what",
+    "key": "fee",
+    "keys": "fee",
+    "cost": "fee",
+    "costs": "fee",
     "pricing": "fee",
+    "rate": "fee",
+    "rates": "fee",
     "charges": "fee",
+    "charge": "fee",
+    "price": "fee",
     "payout": "settlement",
     "payouts": "settlement",
     "transfers": "settlement",
@@ -18,7 +28,12 @@ SYNONYM_MAP = {
     "forex": "currency",
 }
 
-# Queries with these terms are explicitly non-operational/out-of-domain traps
+CONVERSATIONAL_MAP = {
+    "not smart": "I am continuously updated with official NovaPay operational, settlement, and compliance guidelines to assist you with precision. How can I help resolve your inquiry?",
+    "stupid": "I am continuously updated with official NovaPay operational, settlement, and compliance guidelines to assist you with precision. How can I help resolve your inquiry?",
+    "dumb": "I am here to help with all NovaPay merchant operations, transaction rates, settlements, and compliance inquiries.",
+}
+
 BLOCKED_SUBSTRINGS = ["stock price", "titanium", "office address", "cryptocurrency", "crypto", "president"]
 
 STOP_WORDS = {
@@ -97,7 +112,7 @@ class RAGEngine:
     def _cosine_similarity(self, vec1: Dict[str, float], vec2: Dict[str, float]) -> float:
         return sum(vec1.get(t, 0.0) * val for t, val in vec2.items())
 
-    def retrieve(self, query: str, top_k: int = 1, threshold: float = 0.18) -> Optional[Tuple[Dict, float]]:
+    def retrieve(self, query: str, top_k: int = 1, threshold: float = 0.14) -> Optional[Tuple[Dict, float]]:
         q_lower = query.lower()
         for phrase in BLOCKED_SUBSTRINGS:
             if phrase in q_lower:
@@ -107,15 +122,22 @@ class RAGEngine:
         if not q_tokens:
             return None
         
-        q_vec = self._vectorize(q_tokens)
+        fuzzy_tokens = []
+        for t in q_tokens:
+            if t in self.vocabulary:
+                fuzzy_tokens.append(t)
+            else:
+                matches = difflib.get_close_matches(t, list(self.vocabulary), n=1, cutoff=0.75)
+                fuzzy_tokens.append(matches[0] if matches else t)
+
+        q_vec = self._vectorize(fuzzy_tokens)
         best_doc = None
         best_score = -1.0
 
         for idx, doc_vec in enumerate(self.doc_vectors):
             score = self._cosine_similarity(q_vec, doc_vec)
-            token_overlap = set(q_tokens).intersection(set(self.doc_tokens[idx]))
+            token_overlap = set(fuzzy_tokens).intersection(set(self.doc_tokens[idx]))
             
-            # Need at least one core domain keyword match
             if score > best_score and len(token_overlap) >= 1:
                 best_score = score
                 best_doc = self.documents[idx]
@@ -126,6 +148,19 @@ class RAGEngine:
         return None
 
     def answer_query(self, user_query: str) -> Dict:
+        q_clean = user_query.lower().strip()
+        for trig, resp in CONVERSATIONAL_MAP.items():
+            if trig in q_clean:
+                return {
+                    "grounded": True,
+                    "confidence": 1.0,
+                    "topic": "NovaAssist Agent Help",
+                    "answer": resp,
+                    "content": resp,
+                    "sources": ["NovaPay Assistant Support"],
+                    "source": "NovaPay Assistant Support"
+                }
+
         match = self.retrieve(user_query)
         if match:
             doc, score = match
