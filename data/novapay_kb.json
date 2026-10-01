@@ -1,27 +1,138 @@
-﻿[
+[
   {
-    "id": "doc_1",
-    "title": "NovaPay Core Platform & Fees",
-    "content": "NovaPay Solutions Ltd offers cross-border and local payment gateway APIs. Standard transaction fees are 1.4% for domestic transactions capped at 2000 NGN, and 3.8% for international transactions. Payout and settlement schedules for registered merchants occur on a T+1 business day basis."
+    "id": "fees_pricing",
+    "topic": "NovaPay Core Platform & Fees",
+    "keywords": [
+      "fee",
+      "fees",
+      "cost",
+      "pricing",
+      "charge",
+      "charges",
+      "domestic",
+      "international",
+      "rate",
+      "percentage",
+      "cap"
+    ],
+    "content": "NovaPay Solutions Ltd offers cross-border and local payment gateway APIs. Standard transaction fees are 1.4% for domestic transactions capped at 2,000 NGN, and 3.8% plus 100 NGN for international transactions with no cap. Account maintenance and API sandbox integration are free of charge."
   },
   {
-    "id": "doc_2",
-    "title": "Merchant Onboarding & KYC",
-    "content": "To onboard as a registered merchant on NovaPay, businesses must submit a valid CAC certificate, verified Tax Identification Number (TIN), business bank account details, and proof of address. Tier 1 verification takes 24 to 48 business hours."
+    "id": "settlements_payouts",
+    "topic": "Settlement Schedules & Payouts",
+    "keywords": [
+      "settlement",
+      "settle",
+      "payout",
+      "payouts",
+      "transfer",
+      "bank",
+      "timeline",
+      "schedule",
+      "funds",
+      "clearing"
+    ],
+    "content": "Payout and settlement schedules for verified merchants occur on a strict T+1 business day basis for domestic local currency (NGN) transactions. International payouts are settled on a T+3 business day basis in USD or EUR. Weekend and public holiday transactions are processed on the subsequent operating business banking day."
   },
   {
-    "id": "doc_3",
-    "title": "Dispute Resolution & Chargebacks",
-    "content": "Merchants have 72 hours to respond to chargeback claims through the NovaPay Merchant Dashboard. Failure to provide transaction evidence within 72 hours results in an automated refund to the cardholder."
+    "id": "onboarding_kyc",
+    "topic": "Merchant Onboarding & Compliance KYC",
+    "keywords": [
+      "kyc",
+      "onboarding",
+      "register",
+      "document",
+      "documents",
+      "cac",
+      "tin",
+      "identity",
+      "verification",
+      "tier",
+      "turnaround",
+      "time",
+      "hours"
+    ],
+    "content": "To complete merchant onboarding, companies must submit CAC documents, TIN, valid director ID, and utility bills. The turnaround time for Tier 1 verification is 24 to 48 business hours once all valid documentation is submitted."
   },
   {
-    "id": "doc_4",
-    "title": "API Webhooks & Integration",
-    "content": "NovaPay sends webhook events for transaction.successful, charge.failed, and refund.processed. Webhooks must return an HTTP 200 OK within 5 seconds. Signatures are verified using HMAC SHA512 with the merchant's secret key."
+    "id": "chargebacks_disputes",
+    "topic": "Chargebacks & Dispute Management",
+    "keywords": [
+      "dispute",
+      "disputes",
+      "chargeback",
+      "chargebacks",
+      "refund",
+      "contest",
+      "evidence",
+      "fraud",
+      "timeline",
+      "claims"
+    ],
+    "content": "Merchants have a strict 72-hour regulatory window from notification to accept or contest a customer chargeback. Required contest evidence includes proof of delivery, signed invoices, and customer transaction logs submitted via the NovaPay merchant dispute dashboard. Contested disputes are arbitrated within 14 business days."
   },
   {
-    "id": "doc_5",
-    "title": "Security & Compliance Standards",
-    "content": "NovaPay maintains PCI-DSS Level 1 compliance, ISO 27001 certification, and enforces end-to-end AES-256 encryption on all stored card data and sensitive API tokens."
+    "id": "refunds_cancellations",
+    "topic": "Refunds, Reversals & Cancellations",
+    "keywords": [
+      "refund",
+      "refunds",
+      "cancel",
+      "cancellation",
+      "reversal",
+      "reversals",
+      "return"
+    ],
+    "content": "Merchants can issue full or partial customer refunds directly through the NovaPay dashboard or the /v1/refunds REST API endpoint. Refunds take 3 to 5 business days to credit back to the customer's funding card or bank account. Processing gateway fees charged on the initial transaction are non-refundable."
+  },
+  {
+    "id": "developer_api_webhooks",
+    "topic": "Developer API & Webhook Verification",
+    "keywords": [
+      "api",
+      "webhook",
+      "webhooks",
+      "integration",
+      "signature",
+      "hmac",
+      "sha512",
+      "secret",
+      "endpoints",
+      "rate",
+      "limit"
+    ],
+    "content": "All merchant webhook endpoints must verify incoming JSON payload authenticity using HMAC SHA512 signatures passed in the 'X-NovaPay-Signature' header against the merchant secret key. Receiving endpoints must return an immediate HTTP 200 OK within 5 seconds. API requests are rate-limited to 120 requests per minute per live API key."
+  },
+  {
+    "id": "currencies_fx",
+    "topic": "Multi-Currency & FX Exchange",
+    "keywords": [
+      "currency",
+      "currencies",
+      "fx",
+      "exchange",
+      "usd",
+      "eur",
+      "gbp",
+      "ngn",
+      "convert",
+      "forex"
+    ],
+    "content": "NovaPay supports merchant multi-currency collection across NGN, USD, GBP, and EUR. Merchants can hold balances in separate currency wallets or auto-convert to primary local currency at real-time interbank rates plus a 1.2% foreign exchange conversion spread."
+  },
+  {
+    "id": "security_compliance",
+    "topic": "Security Architecture & Standards",
+    "keywords": [
+      "security",
+      "pci",
+      "pcidss",
+      "iso",
+      "encryption",
+      "tls",
+      "aes",
+      "tokenization"
+    ],
+    "content": "NovaPay platform architecture is certified under PCI-DSS Level 1 service provider standards and ISO/IEC 27001 security compliance. All sensitive cardholder data is tokenized inside hardware security modules (HSM) with AES-256 encryption at rest and TLS 1.3 in transit."
   }
 ]
