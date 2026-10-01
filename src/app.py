@@ -23,7 +23,7 @@ CONVERSATIONAL_INTENTS = [
     (["who are you", "what is your name", "what are you"],
      "I am NovaAssist, an intelligent business operations copilot engineered specifically for NovaPay merchant solutions, settlements, disputes, and compliance."),
 
-    (["what can you do", "what can you for me", "what do you do", "help me", "what can i ask"],
+    (["what can you do", "what can you for me", "what do you do", "help me", "what can i ask", "services you offer", "what are your services", "services do you offer"],
      "I provide verified operational answers for NovaPay merchants. You can ask about transaction fees, settlement payout cycles (T+1/T+3), Tier 1 & Tier 2 KYC verification, dispute chargeback deadlines, and webhook API integration."),
 
     (["only about that", "is it only", "can i only ask"],

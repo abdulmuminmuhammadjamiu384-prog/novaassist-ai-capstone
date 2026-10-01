@@ -134,5 +134,20 @@
       "tokenization"
     ],
     "content": "NovaPay platform architecture is certified under PCI-DSS Level 1 service provider standards and ISO/IEC 27001 security compliance. All sensitive cardholder data is tokenized inside hardware security modules (HSM) with AES-256 encryption at rest and TLS 1.3 in transit."
+  },
+  {
+    "topic": "NovaPay Services & Product Overview",
+    "keywords": [
+      "services",
+      "offer",
+      "products",
+      "solutions",
+      "features",
+      "capabilities",
+      "what do you do",
+      "what can you do",
+      "platform"
+    ],
+    "content": "NovaPay Solutions provides end-to-end digital payment infrastructure for merchants. Core services include: 1) Multi-channel payment gateway (cards, bank transfers, USSD), 2) Automated merchant settlement and payouts (T+1 domestic, T+3 international), 3) Tiered KYC onboarding and merchant compliance, 4) Dispute and chargeback management with a 72-hour resolution window, and 5) Secure RESTful webhook API integrations enforced by HMAC SHA-256 signatures and PCI-DSS Level 1 certification."
   }
 ]
